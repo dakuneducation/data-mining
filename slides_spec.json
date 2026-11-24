@@ -102,16 +102,16 @@
       "subtitle": "Dua jenis kesalahan yang tidak setara pada klasifikasi tumor",
       "blocks": [
         { "type": "stat_card", "value": "42 / 113", "label": "sampel uji berlabel ganas (37,17%)", "icon": "target", "accent": "accent_malignant", "x": 0.6, "y": 1.6, "w": 3.9, "h": 1.6 },
-        { "type": "stat_card", "value": "0,88 poin", "label": "pergeseran akurasi per 1 kasus (1/113)", "icon": "percent", "accent": "accent_benign", "x": 4.72, "y": 1.6, "w": 3.9, "h": 1.6 },
-        { "type": "stat_card", "value": "2,38 poin", "label": "pergeseran sensitivitas per 1 kasus ganas (1/42)", "icon": "activity", "accent": "accent_teal", "x": 8.83, "y": 1.6, "w": 3.9, "h": 1.6 },
+        { "type": "stat_card", "value": "0,88 poin", "label": "perubahan akurasi per 1 kasus (1/113)", "icon": "percent", "accent": "accent_benign", "x": 4.72, "y": 1.6, "w": 3.9, "h": 1.6 },
+        { "type": "stat_card", "value": "2,38 poin", "label": "perubahan sensitivitas per 1 kasus ganas (1/42)", "icon": "activity", "accent": "accent_teal", "x": 8.83, "y": 1.6, "w": 3.9, "h": 1.6 },
         { "type": "icon_card", "icon": "triangle-alert", "accent": "accent_malignant", "x": 0.6, "y": 3.45, "w": 6.0, "h": 1.75,
           "title": "Negatif Palsu (FN): ganas terprediksi jinak",
-          "text": "Kasus ganas yang terlewat. Pada skrining, kesalahan ini paling mahal karena menunda penanganan. Akurasi tidak membedakannya dari positif palsu." },
+          "text": "Kasus ganas yang terlewat. Pada screening, kesalahan ini paling merugikan karena menunda penanganan. Akurasi tidak membedakannya dari positif palsu." },
         { "type": "icon_card", "icon": "circle-alert", "accent": "accent_benign", "x": 6.73, "y": 3.45, "w": 6.0, "h": 1.75,
           "title": "Positif Palsu (FP): jinak terprediksi ganas",
           "text": "Pasien jinak mendapat tindak lanjut yang sebenarnya tidak perlu. Dampaknya nyata, tetapi berbeda sifat dari kasus ganas yang terlewat." },
         { "type": "callout", "accent": "accent_amber", "icon": "lightbulb", "x": 0.6, "y": 5.4, "w": 12.13, "h": 1.35,
-          "text": "Dua model yang sama-sama membuat dua kesalahan memperoleh akurasi identik, padahal jumlah sampel ganas yang terlewat dapat berbeda. Karena itu pemilihan model perlu mengikuti jenis kesalahan yang diprioritaskan, bukan hanya angka akurasi." }
+          "text": "Dua model dengan jumlah kesalahan yang sama bisa memperoleh akurasi identik, padahal jumlah ganas yang terlewat bisa berbeda. Karena itu pemilihan model harus mengikuti jenis kesalahan yang diprioritaskan, bukan sekadar angka akurasi." }
       ],
       "speaker_notes": "Tekankan penyebut: akurasi dibagi 113, sensitivitas dibagi 42. Satu kasus ganas yang terlewat menggeser sensitivitas hampir tiga kali lebih besar daripada akurasi."
     },
@@ -125,7 +125,7 @@
         { "type": "icon_card", "icon": "book-open", "accent": "accent_benign", "x": 0.6, "y": 1.6, "w": 6.0, "h": 2.45,
           "title": "Posisi terhadap literatur",
           "bullets": [
-            "Al Reshan dkk. (2023): penggabungan model dan seleksi fitur pada WDBC",
+            "Al Reshan dkk. (2023): model ensemble dan feature selection pada WDBC",
             "Zhang dkk. (2025): perbandingan metode ML pada data Wisconsin dengan praproses dan tuning sendiri",
             "Angka akurasi antarpublikasi tidak sebanding karena perlakuan data berbeda",
             "Oktan dkk. (2026): alur data - pemodelan - evaluasi pada regresi, diterapkan di sini pada target kategoris"
@@ -134,8 +134,8 @@
           "title": "Prinsip desain penelitian",
           "bullets": [
             "Semua model dinilai pada sampel uji yang sama (113 sampel)",
-            "Indeks lipatan validasi silang dipakai bersama seluruh model",
-            "Ambang keputusan sama (0,5) untuk enam metode",
+            "Indeks fold cross validation dibagi bersama semua model",
+            "Threshold keputusan sama (0,5) untuk enam metode",
             "Seluruh perbandingan bersifat deskriptif pada sampel yang tersedia"
           ] },
         { "type": "question_card", "number": "RQ1", "icon": "layers", "accent": "accent_purple", "x": 0.6, "y": 4.3, "w": 6.0, "h": 2.4,
@@ -152,62 +152,62 @@
       "id": 4,
       "layout": "data_overview",
       "title": "Dataset: Breast Cancer Wisconsin (Diagnostic)",
-      "subtitle": "569 sampel aspirasi jarum halus, 30 prediktor numerik dari citra inti sel",
+      "subtitle": "569 sampel fine needle aspirate (FNA), 30 prediktor numerik dari citra inti sel",
       "blocks": [
         { "type": "stat_card", "value": "569", "label": "baris lengkap, tanpa data hilang", "icon": "database", "accent": "accent_benign", "x": 0.6, "y": 1.6, "w": 2.9, "h": 1.35 },
         { "type": "stat_card", "value": "30", "label": "prediktor numerik", "icon": "sliders-horizontal", "accent": "accent_teal", "x": 3.65, "y": 1.6, "w": 2.9, "h": 1.35 },
         { "type": "icon_card", "icon": "ruler", "accent": "accent_teal", "x": 0.6, "y": 3.15, "w": 5.95, "h": 3.55,
-          "title": "Struktur 30 fitur = 10 karakteristik x 3 ringkasan",
+          "title": "Struktur 30 fitur = 10 ukuran x 3 statistik",
           "bullets": [
-            "10 karakteristik: radius, tekstur, keliling, luas, kehalusan, kekompakan, cekungan, titik cekung, simetri, dimensi fraktal",
-            "3 ringkasan: mean (rerata), standard error (galat baku), worst (rerata tiga nilai terbesar)",
-            "Contoh: radius_worst = rerata tiga pengukuran radius terbesar dalam satu sampel",
+            "10 ukuran: radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, fractal dimension",
+            "3 statistik: mean, standard error (SE), worst (rata-rata tiga nilai terbesar)",
+            "Contoh: radius_worst = rata-rata tiga pengukuran radius terbesar dalam satu sampel",
             "Label: B (benign/jinak), M (malignant/ganas); M ditetapkan sebagai kelas positif"
           ] },
         { "type": "icon_card", "icon": "eraser", "accent": "accent_orange", "x": 6.78, "y": 1.6, "w": 5.95, "h": 1.35,
           "title": "Pembersihan data",
           "text": "Kolom identitas dibuang (hanya penanda sampel) dan satu kolom kosong penuh dihapus. Nama fitur diseragamkan." },
-        { "type": "table", "caption": "Tabel 1. Komposisi kelas setelah pembagian terstratifikasi (80:20, seed 123)", "x": 6.78, "y": 3.15, "w": 5.95, "h": 2.3,
+        { "type": "table", "caption": "Tabel 1. Komposisi kelas setelah split stratified (80:20, seed 123)", "x": 6.78, "y": 3.15, "w": 5.95, "h": 2.3,
           "columns": ["Kelas", "Latih", "Uji", "Total"],
           "rows": [["Jinak (B)", "286", "71", "357"], ["Ganas (M)", "170", "42", "212"], ["Total", "456", "113", "569"]],
           "highlight_rows": [2], "align": ["left", "right", "right", "right"] },
         { "type": "callout", "accent": "accent_benign", "icon": "equal", "x": 6.78, "y": 5.6, "w": 5.95, "h": 1.1,
           "text": "Proporsi ganas hampir sama: 37,28% (latih) dan 37,17% (uji), sehingga data uji representatif." }
       ],
-      "speaker_notes": "Fitur worst nanti muncul lagi sebagai fitur terpenting Random Forest."
+      "speaker_notes": "Fitur worst nanti muncul lagi sebagai feature importance teratas Random Forest."
     },
 
     {
       "id": 5,
       "layout": "pipeline_flow",
       "title": "Alur Metodologi End-to-End di R",
-      "subtitle": "Dirancang agar bebas kebocoran data (data leakage) dan sebanding antarmodel",
+      "subtitle": "Dirancang bebas data leakage dan sebanding antarmodel",
       "blocks": [
         { "type": "process_flow", "x": 0.6, "y": 1.6, "w": 12.13, "h": 2.7, "direction": "horizontal",
           "steps": [
             { "n": 1, "icon": "file-spreadsheet", "accent": "accent_benign", "title": "Muat & bersihkan", "text": "data.csv, buang kolom ID dan kolom kosong, M = kelas positif" },
-            { "n": 2, "icon": "split", "accent": "accent_teal", "title": "Split 80:20", "text": "createDataPartition terstratifikasi, seed 123: 456 latih, 113 uji" },
-            { "n": 3, "icon": "repeat", "accent": "accent_amber", "title": "10-fold CV", "text": "createFolds seed 123, indeks lipatan dipakai bersama semua model" },
-            { "n": 4, "icon": "settings-2", "accent": "accent_orange", "title": "Tuning parameter", "text": "caret::train, metrik seleksi = AUC (ROC)" },
-            { "n": 5, "icon": "layers", "accent": "accent_purple", "title": "Bentuk ensemble", "text": "Random Forest dan soft voting rerata 4 probabilitas" },
-            { "n": 6, "icon": "chart-no-axes-combined", "accent": "accent_malignant", "title": "Evaluasi", "text": "AUC CV, lalu metrik pada 113 sampel uji di ambang 0,5" }
+            { "n": 2, "icon": "split", "accent": "accent_teal", "title": "Split 80:20", "text": "createDataPartition stratified, seed 123: 456 latih, 113 uji" },
+            { "n": 3, "icon": "repeat", "accent": "accent_amber", "title": "10-fold CV", "text": "createFolds seed 123, indeks fold dibagi semua model" },
+            { "n": 4, "icon": "settings-2", "accent": "accent_orange", "title": "Tuning parameter", "text": "caret::train, selection metric = AUC (ROC)" },
+            { "n": 5, "icon": "layers", "accent": "accent_purple", "title": "Bentuk ensemble", "text": "Random Forest + Soft Voting, average 4 probabilitas" },
+            { "n": 6, "icon": "chart-no-axes-combined", "accent": "accent_malignant", "title": "Evaluasi", "text": "AUC CV, lalu metrik pada 113 sampel uji di threshold 0,5" }
           ] },
         { "type": "icon_card", "icon": "shield-check", "accent": "accent_teal", "x": 0.6, "y": 4.55, "w": 6.0, "h": 2.15,
-          "title": "Pencegahan kebocoran data",
+          "title": "Pencegahan data leakage",
           "bullets": [
-            "Center dan scale dihitung dari bagian latih di setiap putaran, lalu diterapkan ke lipatan validasi",
+            "Center & scale dihitung dari data latih tiap fold, lalu diterapkan ke fold validasi",
             "Model akhir memakai parameter skala dari seluruh data latih saja",
             "Distribusi data uji tidak pernah masuk pelatihan"
           ] },
         { "type": "icon_card", "icon": "git-compare", "accent": "accent_benign", "x": 6.73, "y": 4.55, "w": 6.0, "h": 2.15,
-          "title": "Kesetaraan perbandingan",
+          "title": "Perbandingan yang adil",
           "bullets": [
-            "Satu pembagian, satu set lipatan, satu ambang untuk semua model",
+            "Satu split, satu set fold, satu threshold untuk semua model",
             "Selisih hasil dapat ditelusuri ke model, bukan ke perbedaan data",
             "Reprodusibel: seed 123, skrip modular 00 sampai 04, dijalankan lewat main.R"
           ] }
       ],
-      "speaker_notes": "Rujukan kebocoran data: Kapoor dan Narayanan (2023)."
+      "speaker_notes": "Rujukan data leakage: Kapoor dan Narayanan (2023)."
     },
 
     {
@@ -219,58 +219,58 @@
         { "type": "table", "caption": "Tabel 2. Konfigurasi pelatihan dalam proyek R", "x": 0.6, "y": 1.6, "w": 7.6, "h": 4.1,
           "columns": ["Model", "Konfigurasi yang diuji"],
           "rows": [
-            ["Pohon keputusan", "rpart, tuneLength = 10 untuk cp"],
+            ["Decision Tree", "rpart, tuneLength = 10 untuk cp"],
             ["Naive Bayes", "fL = 0 atau 1, kernel aktif/nonaktif, adjust = 1"],
             ["KNN", "k ganjil dari 3 hingga 25 (12 nilai)"],
-            ["SVM radial", "svmRadial, tuneLength = 8 (parameter biaya C)"],
-            ["Random Forest", "500 pohon, mtry = 2, 4, 6, 8, 12, 16"],
-            ["Soft voting", "Rerata probabilitas 4 model tunggal, bobot sama (1/4)"]
+            ["SVM (RBF)", "svmRadial, tuneLength = 8 (cost parameter C)"],
+            ["Random Forest", "500 trees, mtry = 2, 4, 6, 8, 12, 16"],
+            ["Soft Voting", "Rata-rata probabilitas 4 model, bobot sama (1/4)"]
           ],
           "row_accent_colors": ["#F4A261", "#E9C46A", "#2A9D8F", "#264653", "#D1495B", "#7B2D8E"], "align": ["left", "left"] },
         { "type": "icon_card", "icon": "brain-circuit", "accent": "accent_benign", "x": 8.4, "y": 1.6, "w": 4.33, "h": 4.1,
-          "title": "Cara belajar tiap model",
+          "title": "Cara kerja tiap model",
           "bullets": [
-            "Pohon: aturan pemisahan bertahap",
-            "Naive Bayes: asumsi independensi bersyarat",
-            "KNN: kelas tetangga terdekat",
-            "SVM RBF: batas pemisah nonlinier",
-            "RF: bagging pohon + sebagian fitur per cabang",
-            "Voting: rerata probabilitas, informasi kekuatan prediksi dipertahankan"
+            "Decision Tree: recursive partitioning",
+            "Naive Bayes: conditional independence",
+            "KNN: mayoritas k neighbors terdekat",
+            "SVM RBF: nonlinear decision boundary",
+            "RF: bagging trees + subset fitur acak tiap split",
+            "Voting: average probabilitas, confidence tiap model terbaca"
           ] },
         { "type": "callout", "accent": "accent_amber", "icon": "info", "x": 0.6, "y": 5.9, "w": 12.13, "h": 0.85,
           "text": "Perbedaan cara belajar inilah dasar pemilihan keempat anggota soft voting: kesalahan yang berbeda pola dapat saling mengoreksi." }
       ],
-      "speaker_notes": "k pada KNN mengatur jumlah tetangga; mtry pada RF mengatur jumlah fitur kandidat per percabangan; jumlah pohon tetap 500."
+      "speaker_notes": "k pada KNN mengatur jumlah neighbors; mtry pada RF mengatur jumlah fitur kandidat per split; jumlah trees tetap 500."
     },
 
     {
       "id": 7,
       "layout": "concept_diagram",
-      "title": "Soft Voting: Rerata Probabilitas, Lalu Keputusan",
-      "subtitle": "Satu aturan ambang 0,5 untuk seluruh metode",
+      "title": "Soft Voting: Rata-rata Probabilitas, Threshold Keputusan",
+      "subtitle": "Satu threshold 0,5 untuk semua metode",
       "blocks": [
         { "type": "formula_flow", "x": 0.6, "y": 1.6, "w": 12.13, "h": 2.3,
           "inputs": [
-            { "label": "Pohon", "color": "#F4A261", "text": "P(M) pohon" },
+            { "label": "Decision Tree", "color": "#F4A261", "text": "P(M) DT" },
             { "label": "Naive Bayes", "color": "#E9C46A", "text": "P(M) NB" },
             { "label": "KNN", "color": "#2A9D8F", "text": "P(M) KNN" },
             { "label": "SVM", "color": "#264653", "text": "P(M) SVM" }
           ],
-          "operator": { "icon": "sigma", "text": "rerata, bobot 1/4 masing-masing" },
+          "operator": { "icon": "sigma", "text": "average, bobot 1/4 per model" },
           "output": { "label": "P(M) akhir", "color": "#7B2D8E", "text": "ganas jika P(M) >= 0,5; jinak jika < 0,5" } },
         { "type": "icon_card", "icon": "check-check", "accent": "accent_teal", "x": 0.6, "y": 4.15, "w": 6.0, "h": 2.55,
           "title": "Kapan voting berhasil?",
           "bullets": [
-            "Anggota dengan skor ganas di bawah ambang dikoreksi anggota lain yang skornya cukup tinggi",
+            "Anggota dengan skor P(M) di bawah threshold dikoreksi anggota lain yang skornya cukup tinggi",
             "Berhasil bila pola kesalahan anggota berbeda",
             "Gagal bila beberapa anggota sama-sama memberi skor rendah pada sampel yang sama"
           ] },
         { "type": "icon_card", "icon": "flask-conical", "accent": "accent_purple", "x": 6.73, "y": 4.15, "w": 6.0, "h": 2.55,
-          "title": "AUC voting yang jujur (out-of-fold)",
+          "title": "AUC voting yang fair (out-of-fold)",
           "bullets": [
-            "Probabilitas OOF empat anggota dipasangkan menurut indeks sampel dan lipatan",
-            "Tiap probabilitas berasal dari model yang dilatih tanpa lipatan tersebut",
-            "Rerata dihitung per sampel, AUC dihitung per lipatan",
+            "Probabilitas OOF empat anggota dipasangkan menurut indeks sampel dan fold",
+            "Tiap probabilitas berasal dari model yang dilatih tanpa fold tersebut",
+            "Rata-rata dihitung per sampel, AUC dihitung per fold",
             "Pengaman: probabilitas kosong (NA) diganti 0,5"
           ] }
       ],
@@ -281,26 +281,26 @@
       "id": 8,
       "layout": "metric_glossary",
       "title": "Membaca Metrik: Penyebut Menentukan Makna",
-      "subtitle": "Metrik berbasis keputusan dihitung pada ambang 0,5; AUC menilai pengurutan skor",
+      "subtitle": "Metrik berbasis keputusan dihitung pada threshold 0,5; AUC menilai ranking skor",
       "blocks": [
         { "type": "table", "caption": "Tabel 3. Pembacaan hasil klasifikasi", "x": 0.6, "y": 1.6, "w": 7.7, "h": 4.1,
-          "columns": ["Ukuran", "Dasar perhitungan"],
+          "columns": ["Metrik", "Dasar perhitungan"],
           "rows": [
             ["Akurasi", "Semua prediksi benar / seluruh sampel (113)"],
             ["Sensitivitas", "Ganas terdeteksi / seluruh sampel ganas (42)"],
             ["Spesifisitas", "Jinak terdeteksi / seluruh sampel jinak (71)"],
             ["Presisi", "Ganas terdeteksi / seluruh prediksi ganas"],
-            ["F1", "Rerata harmonik presisi dan sensitivitas"],
-            ["Kappa", "Kesepakatan prediksi-label setelah koreksi kesepakatan karena peluang"]
+            ["F1", "Harmonic mean presisi dan sensitivitas"],
+            ["Kappa", "Agreement prediksi vs label, dikoreksi untuk chance agreement"]
           ], "align": ["left", "left"] },
         { "type": "icon_card", "icon": "list-checks", "accent": "accent_benign", "x": 8.5, "y": 1.6, "w": 4.23, "h": 4.1,
-          "title": "Istilah kesalahan",
+          "title": "Istilah confusion matrix",
           "bullets": [
-            "TP: ganas terdeteksi ganas",
-            "TN: jinak terdeteksi jinak",
+            "TP: ganas diprediksi ganas",
+            "TN: jinak diprediksi jinak",
             "FP: jinak diprediksi ganas",
             "FN: ganas diprediksi jinak",
-            "AUC: kemampuan skor mengurutkan kelas pada semua ambang"
+            "AUC: kemampuan skor memisahkan kelas di semua threshold"
           ] },
         { "type": "callout", "accent": "accent_malignant", "icon": "eye", "x": 0.6, "y": 5.9, "w": 12.13, "h": 0.85,
           "text": "Hitungan FN dan FP disajikan sebagai bilangan bulat agar perubahan satu kasus mudah ditelusuri." }
@@ -311,79 +311,79 @@
     {
       "id": 9,
       "layout": "eda",
-      "title": "Eksplorasi Data: Ukuran Inti Sel Memisahkan Kelas",
+      "title": "Eksplorasi Data: Ukuran Inti Sel Membedakan Kelas",
       "subtitle": "Median fitur terpilih pada seluruh 569 sampel",
       "blocks": [
-        { "type": "table", "caption": "Tabel 4. Median fitur (kelompok mean) menurut kelas", "x": 0.6, "y": 1.6, "w": 6.4, "h": 3.2,
+        { "type": "table", "caption": "Tabel 4. Median fitur (group mean) menurut kelas", "x": 0.6, "y": 1.6, "w": 6.4, "h": 3.2,
           "columns": ["Fitur (mean)", "Jinak", "Ganas"],
           "rows": [
             ["Radius", "12,200", "17,325"],
-            ["Keliling", "78,18", "114,20"],
-            ["Luas", "458,4", "932,0"],
-            ["Titik cekung", "0,0234", "0,0863"],
-            ["Dimensi fraktal", "0,06154", "0,06158"]
+            ["Perimeter", "78,18", "114,20"],
+            ["Area", "458,4", "932,0"],
+            ["Concave points", "0,0234", "0,0863"],
+            ["Fractal dimension", "0,06154", "0,06158"]
           ], "highlight_rows": [2], "align": ["left", "right", "right"],
           "column_accent": { "1": "#2E86AB", "2": "#D1495B" } },
-        { "type": "chart", "chart_type": "bar_grouped", "title": "Median luas inti sel (mean)", "x": 7.2, "y": 1.6, "w": 5.53, "h": 3.2,
-          "categories": ["Jinak", "Ganas"], "series": [{ "name": "Luas", "values": [458.4, 932.0], "colors": ["#2E86AB", "#D1495B"] }],
-          "data_labels": true, "y_title": "Luas (satuan data)" },
+        { "type": "chart", "chart_type": "bar_grouped", "title": "Median area inti sel (mean)", "x": 7.2, "y": 1.6, "w": 5.53, "h": 3.2,
+          "categories": ["Jinak", "Ganas"], "series": [{ "name": "Area", "values": [458.4, 932.0], "colors": ["#2E86AB", "#D1495B"] }],
+          "data_labels": true, "y_title": "Area (satuan data)" },
         { "type": "icon_card", "icon": "maximize-2", "accent": "accent_malignant", "x": 0.6, "y": 5.0, "w": 4.0, "h": 1.75,
           "title": "Ukuran membedakan",
-          "text": "Median luas ganas (932,0) sekitar dua kali jinak (458,4). Titik cekung ganas juga jauh lebih tinggi (0,0863 vs 0,0234)." },
+          "text": "Median area ganas (932,0) sekitar dua kali jinak (458,4). Concave points ganas juga jauh lebih tinggi (0,0863 vs 0,0234)." },
         { "type": "icon_card", "icon": "minus", "accent": "accent_amber", "x": 4.67, "y": 5.0, "w": 4.0, "h": 1.75,
           "title": "Fraktal hampir sama",
-          "text": "Median dimensi fraktal nyaris identik (0,06154 vs 0,06158), tetapi kedekatan median belum menjelaskan bentuk distribusi." },
-        { "type": "stat_card", "value": "r = 0,9979", "label": "korelasi Pearson radius-keliling (mean); informasi ukuran sangat serupa, 30 prediktor tetap dipertahankan", "icon": "link", "accent": "accent_purple", "x": 8.74, "y": 5.0, "w": 3.99, "h": 1.75 }
+          "text": "Median fractal dimension nyaris identik (0,06154 vs 0,06158), tetapi kedekatan median belum menjelaskan bentuk distribusi." },
+        { "type": "stat_card", "value": "r = 0,9979", "label": "korelasi Pearson radius-perimeter (mean); informasi ukuran sangat serupa, 30 prediktor tetap dipertahankan", "icon": "link", "accent": "accent_purple", "x": 8.74, "y": 5.0, "w": 3.99, "h": 1.75 }
       ],
-      "speaker_notes": "Median hanya dipakai untuk deskripsi data, bukan untuk memilih fitur atau menetapkan ambang."
+      "speaker_notes": "Median hanya dipakai untuk deskripsi data, bukan untuk memilih fitur atau menetapkan threshold."
     },
 
     {
       "id": 10,
       "layout": "results_cv",
-      "title": "Validasi Silang: SVM Tertinggi, RF dan SVM Paling Stabil",
-      "subtitle": "AUC pada sepuluh lipatan data latih (456 sampel)",
+      "title": "Cross Validation: SVM Tertinggi, RF dan SVM Paling Stabil",
+      "subtitle": "AUC pada 10 fold data latih (456 sampel)",
       "blocks": [
-        { "type": "table", "caption": "Tabel 5. AUC sepuluh lipatan", "x": 0.6, "y": 1.6, "w": 6.3, "h": 3.5,
-          "columns": ["Model", "Rerata", "SD", "Median"],
+        { "type": "table", "caption": "Tabel 5. AUC 10 fold", "x": 0.6, "y": 1.6, "w": 6.3, "h": 3.5,
+          "columns": ["Model", "Mean", "SD", "Median"],
           "rows": [
-            ["Pohon", "0,9542", "0,0260", "0,9645"],
+            ["Decision Tree", "0,9542", "0,0260", "0,9645"],
             ["Naive Bayes", "0,9857", "0,0162", "0,9949"],
             ["KNN", "0,9917", "0,0141", "0,9979"],
             ["SVM", "0,9940", "0,0097", "0,9989"],
             ["Random Forest", "0,9915", "0,0094", "0,9949"],
-            ["Soft voting", "0,9918", "0,0123", "0,9958"]
+            ["Soft Voting", "0,9918", "0,0123", "0,9958"]
           ], "highlight_rows": [3], "best_cells": [[3, 1], [4, 2], [3, 3]], "align": ["left", "right", "right", "right"] },
-        { "type": "chart", "chart_type": "bar_horizontal", "title": "Rerata AUC CV (10 lipatan)", "x": 7.1, "y": 1.6, "w": 5.63, "h": 3.5,
-          "categories": ["Pohon", "Naive Bayes", "Random Forest", "KNN", "Soft voting", "SVM"],
+        { "type": "chart", "chart_type": "bar_horizontal", "title": "Mean AUC CV (10 fold)", "x": 7.1, "y": 1.6, "w": 5.63, "h": 3.5,
+          "categories": ["Decision Tree", "Naive Bayes", "Random Forest", "KNN", "Soft Voting", "SVM"],
           "series": [{ "name": "AUC", "values": [0.9542, 0.9857, 0.9915, 0.9917, 0.9918, 0.9940], "colors": ["#F4A261", "#E9C46A", "#D1495B", "#2A9D8F", "#7B2D8E", "#264653"] }],
           "axis_min": 0.94, "axis_max": 1.0, "data_labels": true },
         { "type": "icon_card", "icon": "trophy", "accent": "accent_teal", "x": 0.6, "y": 5.3, "w": 4.0, "h": 1.45,
           "title": "Peringkat",
-          "text": "SVM rerata tertinggi (0,9940). Pohon terendah dan paling bervariasi (SD 0,0260)." },
+          "text": "SVM mean tertinggi (0,9940). Decision Tree terendah dan paling bervariasi (SD 0,0260)." },
         { "type": "icon_card", "icon": "chart-candlestick", "accent": "accent_malignant", "x": 4.67, "y": 5.3, "w": 4.0, "h": 1.45,
           "title": "Stabilitas",
-          "text": "RF SD terkecil (0,0094), disusul SVM (0,0097). Lipatan 2: KNN 0,9564 dan voting 0,9615; lipatan 6: keduanya 1,0000." },
+          "text": "RF SD terkecil (0,0094), disusul SVM (0,0097). Fold 2: KNN 0,9564 dan voting 0,9615; fold 6: keduanya 1,0000." },
         { "type": "callout", "accent": "accent_purple", "icon": "scale", "x": 8.74, "y": 5.3, "w": 3.99, "h": 1.45,
           "text": "Voting vs KNN hanya selisih 0,0001 (pembulatan 4 desimal): voting belum menambah nilai." }
       ],
-      "speaker_notes": "Lipatan yang sama dipakai semua model, jadi turunnya AUC di lipatan 2 terjadi pada kelompok observasi validasi yang sama. Rerata AUC CV menggambarkan proses pemilihan model, bukan estimasi bebas bias."
+      "speaker_notes": "Fold yang sama dipakai semua model, jadi turunnya AUC di fold 2 terjadi pada observasi validasi yang sama. Mean AUC CV menggambarkan proses pemilihan model, bukan estimasi bebas bias."
     },
 
     {
       "id": 11,
       "layout": "tuning_images",
       "title": "Tuning Hiperparameter: KNN dan SVM",
-      "subtitle": "Setiap titik adalah ringkasan validasi silang pada data latih",
+      "subtitle": "Setiap titik adalah ringkasan cross validation pada data latih",
       "blocks": [
-        { "type": "image", "file": "output/plots/07_tuning_knn.png", "caption": "Rerata AUC validasi menurut jumlah tetangga KNN (12 nilai k ganjil, 3-25)", "x": 0.6, "y": 1.6, "w": 6.0, "h": 3.6, "fit": "contain", "frame": true },
-        { "type": "image", "file": "output/plots/08_tuning_svm.png", "caption": "Rerata AUC validasi menurut parameter biaya SVM (sumbu mendatar skala log)", "x": 6.73, "y": 1.6, "w": 6.0, "h": 3.6, "fit": "contain", "frame": true },
+        { "type": "image", "file": "output/plots/07_tuning_knn.png", "caption": "Mean AUC validasi menurut jumlah neighbors KNN (12 nilai k ganjil, 3-25)", "x": 0.6, "y": 1.6, "w": 6.0, "h": 3.6, "fit": "contain", "frame": true },
+        { "type": "image", "file": "output/plots/08_tuning_svm.png", "caption": "Mean AUC validasi menurut cost parameter SVM (sumbu-x skala log)", "x": 6.73, "y": 1.6, "w": 6.0, "h": 3.6, "fit": "contain", "frame": true },
         { "type": "icon_card", "icon": "users", "accent": "accent_teal", "x": 0.6, "y": 5.4, "w": 6.0, "h": 1.35,
-          "title": "KNN: efek jumlah tetangga",
-          "text": "Naiknya k memperluas himpunan tetangga yang menentukan skor sebuah sampel; perbedaan antartitik ditelusuri ke perubahan k pada lipatan yang sama." },
+          "title": "KNN: efek jumlah neighbors",
+          "text": "Naiknya k menambah jumlah neighbors yang menentukan skor sebuah sampel; perbedaan antartitik berasal dari perubahan k pada fold yang sama." },
         { "type": "icon_card", "icon": "scaling", "accent": "accent_benign", "x": 6.73, "y": 5.4, "w": 6.0, "h": 1.35,
-          "title": "SVM: parameter biaya C",
-          "text": "C mengendalikan penalti atas pelanggaran margin. Kurva memperlihatkan beberapa konfigurasi sebelum satu model dipakai memprediksi 113 sampel uji." }
+          "title": "SVM: cost parameter C",
+          "text": "C mengontrol penalti pelanggaran margin. Kurva memperlihatkan beberapa konfigurasi sebelum satu model terpilih untuk memprediksi 113 sampel uji." }
       ],
       "fallback_if_no_image": "Ganti blok image dengan chart line dari output/tables bila gambar tidak tersedia.",
       "speaker_notes": "Gambar diambil dari folder output/plots hasil 04_visualisasi.R (300 DPI)."
@@ -392,21 +392,21 @@
     {
       "id": 12,
       "layout": "results_test",
-      "title": "Data Uji: Tiga Metode Seri di Akurasi 98,23%",
+      "title": "Data Uji: Tiga Metode dengan Akurasi Sama 98,23%",
       "subtitle": "KNN, Random Forest, dan Soft Voting sama-sama benar 111 dari 113 sampel",
       "blocks": [
         { "type": "table", "caption": "Tabel 6. Akurasi, F1, dan AUC pada 113 sampel uji", "x": 0.6, "y": 1.6, "w": 6.4, "h": 3.5,
           "columns": ["Model", "Akurasi", "F1", "AUC"],
           "rows": [
-            ["Pohon", "0,9469", "0,9302", "0,9549"],
+            ["Decision Tree", "0,9469", "0,9302", "0,9549"],
             ["Naive Bayes", "0,9735", "0,9630", "0,9903"],
             ["KNN", "0,9823", "0,9756", "0,9956"],
             ["SVM", "0,9735", "0,9639", "0,9963"],
             ["Random Forest", "0,9823", "0,9762", "0,9906"],
-            ["Soft voting", "0,9823", "0,9756", "0,9950"]
+            ["Soft Voting", "0,9823", "0,9756", "0,9950"]
           ], "highlight_rows": [2, 4, 5], "best_cells": [[4, 2], [3, 3]], "align": ["left", "right", "right", "right"] },
         { "type": "chart", "chart_type": "bar_grouped", "title": "Akurasi vs AUC uji", "x": 7.2, "y": 1.6, "w": 5.53, "h": 3.5,
-          "categories": ["Pohon", "NB", "KNN", "SVM", "RF", "Voting"],
+          "categories": ["DT", "NB", "KNN", "SVM", "RF", "Voting"],
           "series": [
             { "name": "Akurasi", "values": [0.9469, 0.9735, 0.9823, 0.9735, 0.9823, 0.9823], "color": "#2E86AB" },
             { "name": "AUC", "values": [0.9549, 0.9903, 0.9956, 0.9963, 0.9906, 0.9950], "color": "#D1495B" }
@@ -416,9 +416,9 @@
           "text": "RF 0,9762 sedikit di atas KNN dan voting (0,9756)." },
         { "type": "icon_card", "icon": "trending-up", "accent": "accent_teal", "x": 4.67, "y": 5.3, "w": 4.0, "h": 1.45,
           "title": "AUC tertinggi: SVM",
-          "text": "SVM 0,9963, namun punya 3 kesalahan di ambang 0,5 (akurasi 0,9735)." },
+          "text": "SVM 0,9963, namun punya 3 kesalahan di threshold 0,5 (akurasi 0,9735)." },
         { "type": "callout", "accent": "accent_amber", "icon": "split", "x": 8.74, "y": 5.3, "w": 3.99, "h": 1.45,
-          "text": "Mengurutkan skor (AUC) dan memutuskan di satu ambang adalah dua pertanyaan berbeda." }
+          "text": "Mengurutkan skor (AUC) dan memutuskan di satu threshold adalah dua pertanyaan berbeda." }
       ],
       "speaker_notes": "Ini menjawab RQ1 sebagian: voting tidak mengungguli KNN pada akurasi."
     },
@@ -432,22 +432,22 @@
         { "type": "table", "caption": "Tabel 7. Metrik berbasis keputusan pada data uji", "x": 0.6, "y": 1.6, "w": 6.6, "h": 3.5,
           "columns": ["Model", "Sens.", "Spes.", "Presisi"],
           "rows": [
-            ["Pohon", "0,9524", "0,9437", "0,9091"],
+            ["Decision Tree", "0,9524", "0,9437", "0,9091"],
             ["Naive Bayes", "0,9286", "1,0000", "1,0000"],
             ["KNN", "0,9524", "1,0000", "1,0000"],
             ["SVM", "0,9524", "0,9859", "0,9756"],
             ["Random Forest", "0,9762", "0,9859", "0,9762"],
-            ["Soft voting", "0,9524", "1,0000", "1,0000"]
+            ["Soft Voting", "0,9524", "1,0000", "1,0000"]
           ], "highlight_rows": [4], "best_cells": [[4, 1]], "align": ["left", "right", "right", "right"] },
         { "type": "chart", "chart_type": "bar_grouped", "title": "Sensitivitas vs Spesifisitas", "x": 7.4, "y": 1.6, "w": 5.33, "h": 3.5,
-          "categories": ["Pohon", "NB", "KNN", "SVM", "RF", "Voting"],
+          "categories": ["DT", "NB", "KNN", "SVM", "RF", "Voting"],
           "series": [
             { "name": "Sensitivitas", "values": [0.9524, 0.9286, 0.9524, 0.9524, 0.9762, 0.9524], "color": "#D1495B" },
             { "name": "Spesifisitas", "values": [0.9437, 1.0, 1.0, 0.9859, 0.9859, 1.0], "color": "#2E86AB" }
           ], "axis_min": 0.9, "axis_max": 1.0, "legend": "bottom" },
         { "type": "icon_card", "icon": "shield-alert", "accent": "accent_malignant", "x": 0.6, "y": 5.3, "w": 6.0, "h": 1.45,
           "title": "RF vs Voting",
-          "text": "RF: sensitivitas 0,9762, spesifisitas 0,9859. Voting: sensitivitas 0,9524, spesifisitas 1,0000. Tukar-tambah antara dua jenis kesalahan." },
+          "text": "RF: sensitivitas 0,9762, spesifisitas 0,9859. Voting: sensitivitas 0,9524, spesifisitas 1,0000. Ada trade-off antara dua jenis kesalahan." },
         { "type": "icon_card", "icon": "ban", "accent": "accent_amber", "x": 6.73, "y": 5.3, "w": 6.0, "h": 1.45,
           "title": "Naive Bayes: presisi sempurna, sensitivitas terendah",
           "text": "Semua yang ditandai ganas memang ganas, tetapi 3 sampel ganas tidak ditandai (sensitivitas 0,9286)." }
@@ -464,38 +464,38 @@
         { "type": "table", "caption": "Tabel 8. Rincian prediksi", "x": 0.6, "y": 1.6, "w": 6.2, "h": 3.5,
           "columns": ["Model", "TP", "TN", "FP", "FN"],
           "rows": [
-            ["Pohon", "40", "67", "4", "2"],
+            ["Decision Tree", "40", "67", "4", "2"],
             ["Naive Bayes", "39", "71", "0", "3"],
             ["KNN", "40", "71", "0", "2"],
             ["SVM", "40", "70", "1", "2"],
             ["Random Forest", "41", "70", "1", "1"],
-            ["Soft voting", "40", "71", "0", "2"]
+            ["Soft Voting", "40", "71", "0", "2"]
           ], "highlight_rows": [4], "column_accent": { "3": "#2E86AB", "4": "#D1495B" }, "align": ["left", "right", "right", "right", "right"] },
         { "type": "chart", "chart_type": "bar_stacked", "title": "Kesalahan per model (FN dan FP)", "x": 7.0, "y": 1.6, "w": 5.73, "h": 3.5,
-          "categories": ["Pohon", "NB", "KNN", "SVM", "RF", "Voting"],
+          "categories": ["DT", "NB", "KNN", "SVM", "RF", "Voting"],
           "series": [
             { "name": "FN (ganas terlewat)", "values": [2, 3, 2, 2, 1, 2], "color": "#D1495B" },
-            { "name": "FP (jinak salah tandai)", "values": [4, 0, 0, 1, 1, 0], "color": "#2E86AB" }
+            { "name": "FP (jinak salah prediksi)", "values": [4, 0, 0, 1, 1, 0], "color": "#2E86AB" }
           ], "data_labels": true, "legend": "bottom" },
         { "type": "icon_card", "icon": "git-merge", "accent": "accent_purple", "x": 0.6, "y": 5.3, "w": 4.0, "h": 1.45,
           "title": "Voting = KNN",
-          "text": "Hitungan identik (40 TP, 71 TN, 2 FN). Tiga anggota tambahan tidak menambah kasus benar, meski baris yang keliru belum tentu sama." },
+          "text": "Hitungan identik (40 TP, 71 TN, 2 FN). Tiga anggota tambahan tidak menambah kasus benar, meski sampel yang salah belum tentu sama." },
         { "type": "icon_card", "icon": "bar-chart-3", "accent": "accent_teal", "x": 4.67, "y": 5.3, "w": 4.0, "h": 1.45,
           "title": "Kappa",
-          "text": "RF 0,9621; KNN dan voting 0,9617; SVM 0,9429; NB 0,9423; pohon 0,8874 (terendah)." },
+          "text": "RF 0,9621; KNN dan voting 0,9617; SVM 0,9429; NB 0,9423; Decision Tree 0,8874 (terendah)." },
         { "type": "callout", "accent": "accent_malignant", "icon": "target", "x": 8.74, "y": 5.3, "w": 3.99, "h": 1.45,
           "text": "RF: 1 FN dan 1 FP. KNN dan voting: 2 FN dan 0 FP. Total kesalahan sama, jenisnya berbeda." }
       ],
-      "speaker_notes": "NB dan SVM akurasinya sama (0,9735) tetapi Kappa berbeda karena distribusi kelas prediksinya berbeda. Pengujian selisih antarmodel memerlukan analisis berpasangan pada sampel yang sama."
+      "speaker_notes": "NB dan SVM akurasinya sama (0,9735) tetapi Kappa berbeda karena distribusi kelas prediksinya berbeda. Pengujian selisih antarmodel memerlukan paired test pada sampel yang sama."
     },
 
     {
       "id": 15,
       "layout": "feature_importance",
-      "title": "Fitur yang Dipakai Random Forest",
-      "subtitle": "Kepentingan fitur menurut penurunan impuritas Gini",
+      "title": "Feature Importance Random Forest",
+      "subtitle": "Feature importance menurut Mean Decrease Gini",
       "blocks": [
-        { "type": "image", "file": "output/plots/09_variabel_penting_rf.png", "caption": "Gambar 5. Peringkat kepentingan fitur Random Forest", "x": 0.6, "y": 1.6, "w": 6.9, "h": 4.1, "fit": "contain", "frame": true },
+        { "type": "image", "file": "output/plots/09_variabel_penting_rf.png", "caption": "Gambar 5. Peringkat feature importance Random Forest", "x": 0.6, "y": 1.6, "w": 6.9, "h": 4.1, "fit": "contain", "frame": true },
         { "type": "ranked_list", "title": "5 fitur teratas", "x": 7.7, "y": 1.6, "w": 5.03, "h": 4.1, "accent": "accent_malignant",
           "items": [
             { "rank": 1, "name": "radius_worst", "tag": "worst" },
@@ -506,22 +506,22 @@
           ],
           "footer": "4 dari 5 fitur teratas memakai ringkasan worst" },
         { "type": "icon_card", "icon": "link-2", "accent": "accent_purple", "x": 0.6, "y": 5.9, "w": 6.0, "h": 0.9,
-          "text": "Radius, luas, dan keliling berkorelasi kuat sehingga dapat saling menggantikan di percabangan." },
+          "text": "Radius, area, dan perimeter berkorelasi kuat sehingga bisa saling menggantikan di percabangan tree." },
         { "type": "icon_card", "icon": "triangle-alert", "accent": "accent_amber", "x": 6.73, "y": 5.9, "w": 6.0, "h": 0.9,
-          "text": "Dibaca sebagai cara hutan pohon membagi sampel, bukan besar pengaruh biologis tiap fitur." }
+          "text": "Dibaca sebagai cara forest membagi sampel, bukan besar pengaruh biologis tiap fitur." }
       ],
       "fallback_if_no_image": "Ganti blok image dengan chart bar_horizontal berisi lima fitur teratas.",
-      "speaker_notes": "Hati-hati dengan klaim kausal: peringkat Gini bukan pengaruh biologis terpisah."
+      "speaker_notes": "Hati-hati dengan klaim kausal: peringkat Gini impurity bukan pengaruh biologis terpisah."
     },
 
     {
       "id": 16,
       "layout": "limitations",
       "title": "Keterbatasan dan Ketidakpastian Estimasi",
-      "subtitle": "Selisih satu kasus belum tentu bertahan jika pembagian data berubah",
+      "subtitle": "Selisih satu kasus belum tentu bertahan jika split berubah",
       "blocks": [
         { "type": "table", "caption": "Tabel 9. Interval Wilson 95% untuk proporsi terpilih", "x": 0.6, "y": 1.6, "w": 6.6, "h": 2.6,
-          "columns": ["Model dan metrik", "Benar/total", "IK 95% (%)"],
+          "columns": ["Model dan metrik", "Benar/total", "CI 95% (%)"],
           "rows": [
             ["Tiga model teratas, akurasi", "111/113", "93,78 - 99,51"],
             ["Random Forest, sensitivitas", "41/42", "87,68 - 99,58"],
@@ -532,13 +532,13 @@
           "text": "Interval sensitivitas lebih lebar karena sampel ganas hanya 42. Spesifisitas 71/71 pun batas bawahnya masih 94,87%, bukan 100%. Interval RF dan KNN/voting saling tumpang tindih." },
         { "type": "icon_card", "icon": "database", "accent": "accent_malignant", "x": 0.6, "y": 4.4, "w": 4.0, "h": 2.35,
           "title": "Data satu sumber",
-          "bullets": ["Uji dan latih dari sumber sama (validasi internal)", "Belum ada pengujian eksternal pada populasi lain", "Kesesuaian populasi sasaran perlu dinilai"] },
+          "bullets": ["Uji dan latih dari sumber sama (internal validation)", "Belum ada pengujian eksternal pada populasi lain", "Kesesuaian populasi sasaran perlu dinilai"] },
         { "type": "icon_card", "icon": "split", "accent": "accent_amber", "x": 4.67, "y": 4.4, "w": 4.0, "h": 2.35,
-          "title": "Satu pembagian uji",
+          "title": "Satu test split",
           "bullets": ["Penilaian akhir bertumpu pada satu split (seed 123)", "113 sampel uji: 1 kasus = 0,88 poin akurasi", "Selisih 1 FN RF vs voting belum teruji ketahanannya"] },
         { "type": "icon_card", "icon": "repeat", "accent": "accent_purple", "x": 8.74, "y": 4.4, "w": 3.99, "h": 2.35,
           "title": "CV tidak independen",
-          "bullets": ["Lipatan yang sama dipakai untuk memilih parameter", "Rerata AUC mencerminkan proses seleksi model", "Sepuluh lipatan berbagi data latih, bukan 10 percobaan independen"] }
+          "bullets": ["Fold yang sama dipakai untuk memilih parameter", "Mean AUC mencerminkan proses seleksi model", "10 fold berbagi data latih, bukan 10 percobaan independen"] }
       ],
       "speaker_notes": "Sumber: Collins dkk. (2024) BMJ, TRIPOD+AI, Riley dkk., Moons dkk. PROBAST+AI."
     },
@@ -554,15 +554,15 @@
           "text": "KNN, Random Forest, dan soft voting sama-sama 98,23% (111/113). Penggabungan empat model berbobot setara belum meningkatkan akurasi di atas KNN." },
         { "type": "question_card", "number": "RQ2", "icon": "crosshair", "accent": "accent_malignant", "x": 6.73, "y": 1.6, "w": 6.0, "h": 2.0,
           "title": "Akurasi tertinggi bukan jaminan",
-          "text": "RF melewatkan 1 dari 42 ganas (1 FP); KNN dan voting melewatkan 2 (0 FP). SVM AUC tertinggi (0,9963) tetapi 3 kesalahan di ambang 0,5." },
+          "text": "RF melewatkan 1 dari 42 ganas (1 FP); KNN dan voting melewatkan 2 (0 FP). SVM AUC tertinggi (0,9963) tetapi 3 kesalahan di threshold 0,5." },
         { "type": "highlight_banner", "icon": "badge-check", "accent": "accent_malignant", "x": 0.6, "y": 3.8, "w": 12.13, "h": 0.95,
-          "text": "Pada pembagian ini, Random Forest paling sesuai bila prioritas adalah mengurangi sampel ganas yang terlewat pada ambang 0,5." },
+          "text": "Pada split ini, Random Forest paling sesuai bila prioritasnya mengurangi ganas yang terlewat pada threshold 0,5." },
         { "type": "icon_card", "icon": "route", "accent": "accent_teal", "x": 0.6, "y": 4.95, "w": 6.0, "h": 1.8,
           "title": "Saran lanjutan",
-          "bullets": ["Validasi silang terstratifikasi berulang untuk menguji ketahanan selisih 1 FN", "Uji pada data eksternal dengan definisi label dan ekstraksi fitur yang dijaga", "Uji berpasangan antarmodel pada sampel yang sama"] },
+          "bullets": ["Repeated stratified cross validation untuk menguji ketahanan selisih 1 FN", "Uji pada data eksternal dengan definisi label dan ekstraksi fitur yang dijaga", "Paired test antarmodel pada sampel yang sama"] },
         { "type": "icon_card", "icon": "lock", "accent": "accent_benign", "x": 6.73, "y": 4.95, "w": 6.0, "h": 1.8,
-          "title": "Bila ambang diubah",
-          "bullets": ["Pilih ambang pada data latih", "Kunci sebelum evaluasi pada kumpulan uji baru", "Rencanakan ukuran sampel validasi berdasarkan presisi estimasi"] }
+          "title": "Bila threshold diubah",
+          "bullets": ["Pilih threshold pada data latih", "Kunci sebelum evaluasi pada kumpulan uji baru", "Rencanakan ukuran sampel validasi berdasarkan presisi estimasi"] }
       ],
       "speaker_notes": "Tutup dengan pesan inti: pilih model berdasarkan jenis kesalahan yang diprioritaskan, dan laporkan hitungan kesalahan, bukan hanya akurasi."
     }
