@@ -7,7 +7,7 @@
     "affiliation": "Informatika, Universitas Singaperbangsa Karawang",
     "language": "id",
     "slide_size": { "width_in": 13.333, "height_in": 7.5, "ratio": "16:9" },
-    "total_slides": 17,
+    "total_slides": 16,
     "coordinate_system": "x, y, w, h dalam inci dari pojok kiri-atas slide. Area konten aman: x 0.6-12.73, y 1.5-6.9. Header: y 0.4-1.3. Footer: y 7.0-7.4.",
     "source_note": "Seluruh angka berasal dari Draft Artikel Kelompok 5 (Tabel 1-9) dan skrip R proyek (00_setup.R sampai 04_visualisasi.R). Jangan menambah angka di luar sumber ini."
   },
@@ -118,38 +118,6 @@
 
     {
       "id": 3,
-      "layout": "two_column_cards",
-      "title": "Celah Penelitian dan Pertanyaan yang Diuji",
-      "subtitle": "Perbandingan antarpublikasi sulit karena perlakuan data berbeda-beda",
-      "blocks": [
-        { "type": "icon_card", "icon": "book-open", "accent": "accent_benign", "x": 0.6, "y": 1.6, "w": 6.0, "h": 2.45,
-          "title": "Posisi terhadap literatur",
-          "bullets": [
-            "Al Reshan dkk. (2023): model ensemble dan feature selection pada WDBC",
-            "Zhang dkk. (2025): perbandingan metode ML pada data Wisconsin dengan praproses dan tuning sendiri",
-            "Angka akurasi antarpublikasi tidak sebanding karena perlakuan data berbeda",
-            "Oktan dkk. (2026): alur data - pemodelan - evaluasi pada regresi, diterapkan di sini pada target kategoris"
-          ] },
-        { "type": "icon_card", "icon": "scale", "accent": "accent_teal", "x": 6.73, "y": 1.6, "w": 6.0, "h": 2.45,
-          "title": "Prinsip desain penelitian",
-          "bullets": [
-            "Semua model dinilai pada sampel uji yang sama (113 sampel)",
-            "Indeks fold cross validation dibagi bersama semua model",
-            "Threshold keputusan sama (0,5) untuk enam metode",
-            "Seluruh perbandingan bersifat deskriptif pada sampel yang tersedia"
-          ] },
-        { "type": "question_card", "number": "RQ1", "icon": "layers", "accent": "accent_purple", "x": 0.6, "y": 4.3, "w": 6.0, "h": 2.4,
-          "title": "Apakah penggabungan membantu?",
-          "text": "Apakah penggabungan probabilitas empat model (soft voting) menghasilkan lebih banyak prediksi benar daripada model-model penyusunnya?" },
-        { "type": "question_card", "number": "RQ2", "icon": "crosshair", "accent": "accent_malignant", "x": 6.73, "y": 4.3, "w": 6.0, "h": 2.4,
-          "title": "Akurasi tertinggi = paling aman?",
-          "text": "Apakah model dengan akurasi tertinggi juga melewatkan paling sedikit sampel ganas?" }
-      ],
-      "speaker_notes": "RQ1 dan RQ2 adalah dua pertanyaan yang akan dijawab di slide kesimpulan."
-    },
-
-    {
-      "id": 4,
       "layout": "data_overview",
       "title": "Dataset: Breast Cancer Wisconsin (Diagnostic)",
       "subtitle": "569 sampel fine needle aspirate (FNA), 30 prediktor numerik dari citra inti sel",
@@ -178,12 +146,12 @@
     },
 
     {
-      "id": 5,
+      "id": 4,
       "layout": "pipeline_flow",
       "title": "Alur Metodologi End-to-End di R",
       "subtitle": "Dirancang bebas data leakage dan sebanding antarmodel",
       "blocks": [
-        { "type": "process_flow", "x": 0.6, "y": 1.6, "w": 12.13, "h": 2.7, "direction": "horizontal",
+        { "type": "process_flow", "x": 0.6, "y": 1.6, "w": 12.13, "h": 2.15, "direction": "horizontal",
           "steps": [
             { "n": 1, "icon": "file-spreadsheet", "accent": "accent_benign", "title": "Muat & bersihkan", "text": "data.csv, buang kolom ID dan kolom kosong, M = kelas positif" },
             { "n": 2, "icon": "split", "accent": "accent_teal", "title": "Split 80:20", "text": "createDataPartition stratified, seed 123: 456 latih, 113 uji" },
@@ -192,14 +160,14 @@
             { "n": 5, "icon": "layers", "accent": "accent_purple", "title": "Bentuk ensemble", "text": "Random Forest + Soft Voting, average 4 probabilitas" },
             { "n": 6, "icon": "chart-no-axes-combined", "accent": "accent_malignant", "title": "Evaluasi", "text": "AUC CV, lalu metrik pada 113 sampel uji di threshold 0,5" }
           ] },
-        { "type": "icon_card", "icon": "shield-check", "accent": "accent_teal", "x": 0.6, "y": 4.55, "w": 6.0, "h": 2.15,
+        { "type": "icon_card", "icon": "shield-check", "accent": "accent_teal", "x": 0.6, "y": 4.10, "w": 6.0, "h": 2.45,
           "title": "Pencegahan data leakage",
           "bullets": [
             "Center & scale dihitung dari data latih tiap fold, lalu diterapkan ke fold validasi",
             "Model akhir memakai parameter skala dari seluruh data latih saja",
             "Distribusi data uji tidak pernah masuk pelatihan"
           ] },
-        { "type": "icon_card", "icon": "git-compare", "accent": "accent_benign", "x": 6.73, "y": 4.55, "w": 6.0, "h": 2.15,
+        { "type": "icon_card", "icon": "git-compare", "accent": "accent_benign", "x": 6.73, "y": 4.10, "w": 6.0, "h": 2.45,
           "title": "Perbandingan yang adil",
           "bullets": [
             "Satu split, satu set fold, satu threshold untuk semua model",
@@ -211,7 +179,7 @@
     },
 
     {
-      "id": 6,
+      "id": 5,
       "layout": "table_focus",
       "title": "Enam Metode dan Konfigurasi Pelatihan",
       "subtitle": "Empat model tunggal berbeda cara belajar, ditambah dua ensemble",
@@ -244,7 +212,7 @@
     },
 
     {
-      "id": 7,
+      "id": 6,
       "layout": "concept_diagram",
       "title": "Soft Voting: Rata-rata Probabilitas, Threshold Keputusan",
       "subtitle": "Satu threshold 0,5 untuk semua metode",
@@ -278,7 +246,7 @@
     },
 
     {
-      "id": 8,
+      "id": 7,
       "layout": "metric_glossary",
       "title": "Membaca Metrik: Penyebut Menentukan Makna",
       "subtitle": "Metrik berbasis keputusan dihitung pada threshold 0,5; AUC menilai ranking skor",
@@ -309,7 +277,7 @@
     },
 
     {
-      "id": 9,
+      "id": 8,
       "layout": "eda",
       "title": "Eksplorasi Data: Ukuran Inti Sel Membedakan Kelas",
       "subtitle": "Median fitur terpilih pada seluruh 569 sampel",
@@ -339,7 +307,7 @@
     },
 
     {
-      "id": 10,
+      "id": 9,
       "layout": "results_cv",
       "title": "Cross Validation: SVM Tertinggi, RF dan SVM Paling Stabil",
       "subtitle": "AUC pada 10 fold data latih (456 sampel)",
@@ -371,7 +339,7 @@
     },
 
     {
-      "id": 11,
+      "id": 10,
       "layout": "tuning_images",
       "title": "Tuning Hiperparameter: KNN dan SVM",
       "subtitle": "Setiap titik adalah ringkasan cross validation pada data latih",
@@ -390,7 +358,7 @@
     },
 
     {
-      "id": 12,
+      "id": 11,
       "layout": "results_test",
       "title": "Data Uji: Tiga Metode dengan Akurasi Sama 98,23%",
       "subtitle": "KNN, Random Forest, dan Soft Voting sama-sama benar 111 dari 113 sampel",
@@ -420,11 +388,11 @@
         { "type": "callout", "accent": "accent_amber", "icon": "split", "x": 8.74, "y": 5.3, "w": 3.99, "h": 1.45,
           "text": "Mengurutkan skor (AUC) dan memutuskan di satu threshold adalah dua pertanyaan berbeda." }
       ],
-      "speaker_notes": "Ini menjawab RQ1 sebagian: voting tidak mengungguli KNN pada akurasi."
+      "speaker_notes": "Voting tidak mengungguli KNN pada akurasi."
     },
 
     {
-      "id": 13,
+      "id": 12,
       "layout": "results_detail",
       "title": "Sensitivitas, Spesifisitas, dan Presisi",
       "subtitle": "Di sinilah perbedaan antarmodel muncul",
@@ -456,7 +424,7 @@
     },
 
     {
-      "id": 14,
+      "id": 13,
       "layout": "confusion_matrix",
       "title": "Jenis dan Jumlah Kesalahan pada 113 Sampel Uji",
       "subtitle": "42 sampel ganas dan 71 jinak: perbedaan yang hilang jika berhenti di akurasi",
@@ -490,7 +458,7 @@
     },
 
     {
-      "id": 15,
+      "id": 14,
       "layout": "feature_importance",
       "title": "Feature Importance Random Forest",
       "subtitle": "Feature importance menurut Mean Decrease Gini",
@@ -515,7 +483,7 @@
     },
 
     {
-      "id": 16,
+      "id": 15,
       "layout": "limitations",
       "title": "Keterbatasan dan Ketidakpastian Estimasi",
       "subtitle": "Selisih satu kasus belum tentu bertahan jika split berubah",
@@ -544,25 +512,25 @@
     },
 
     {
-      "id": 17,
+      "id": 16,
       "layout": "conclusion",
-      "title": "Kesimpulan dan Saran",
-      "subtitle": "Jawaban atas dua pertanyaan penelitian",
+      "title": "Kesimpulan",
+      "subtitle": "Temuan utama perbandingan enam metode pada 113 sampel uji",
       "blocks": [
-        { "type": "question_card", "number": "RQ1", "icon": "layers", "accent": "accent_purple", "x": 0.6, "y": 1.6, "w": 6.0, "h": 2.0,
-          "title": "Voting belum mengungguli",
-          "text": "KNN, Random Forest, dan soft voting sama-sama 98,23% (111/113). Penggabungan empat model berbobot setara belum meningkatkan akurasi di atas KNN." },
-        { "type": "question_card", "number": "RQ2", "icon": "crosshair", "accent": "accent_malignant", "x": 6.73, "y": 1.6, "w": 6.0, "h": 2.0,
-          "title": "Akurasi tertinggi bukan jaminan",
-          "text": "RF melewatkan 1 dari 42 ganas (1 FP); KNN dan voting melewatkan 2 (0 FP). SVM AUC tertinggi (0,9963) tetapi 3 kesalahan di threshold 0,5." },
-        { "type": "highlight_banner", "icon": "badge-check", "accent": "accent_malignant", "x": 0.6, "y": 3.8, "w": 12.13, "h": 0.95,
-          "text": "Pada split ini, Random Forest paling sesuai bila prioritasnya mengurangi ganas yang terlewat pada threshold 0,5." },
-        { "type": "icon_card", "icon": "route", "accent": "accent_teal", "x": 0.6, "y": 4.95, "w": 6.0, "h": 1.8,
-          "title": "Saran lanjutan",
-          "bullets": ["Repeated stratified cross validation untuk menguji ketahanan selisih 1 FN", "Uji pada data eksternal dengan definisi label dan ekstraksi fitur yang dijaga", "Paired test antarmodel pada sampel yang sama"] },
-        { "type": "icon_card", "icon": "lock", "accent": "accent_benign", "x": 6.73, "y": 4.95, "w": 6.0, "h": 1.8,
-          "title": "Bila threshold diubah",
-          "bullets": ["Pilih threshold pada data latih", "Kunci sebelum evaluasi pada kumpulan uji baru", "Rencanakan ukuran sampel validasi berdasarkan presisi estimasi"] }
+        { "type": "stat_card", "value": "98,23%", "label": "akurasi identik KNN, Random Forest, dan Soft Voting (111/113 sampel uji)", "icon": "trophy", "accent": "accent_teal", "x": 0.6, "y": 1.6, "w": 3.9, "h": 1.5 },
+        { "type": "stat_card", "value": "1 dari 42", "label": "ganas terlewat Random Forest (1 FN); KNN dan Soft Voting 2", "icon": "shield-alert", "accent": "accent_malignant", "x": 4.72, "y": 1.6, "w": 3.9, "h": 1.5 },
+        { "type": "stat_card", "value": "0,9963", "label": "AUC tertinggi SVM, tetapi 3 kesalahan di threshold 0,5", "icon": "trending-up", "accent": "accent_purple", "x": 8.83, "y": 1.6, "w": 3.9, "h": 1.5 },
+        { "type": "icon_card", "icon": "git-merge", "accent": "accent_purple", "x": 0.6, "y": 3.35, "w": 4.0, "h": 2.05,
+          "title": "Soft voting belum mengungguli KNN",
+          "text": "Penggabungan empat model berbobot setara tidak menambah prediksi benar: hitungan TP, TN, FP, dan FN Soft Voting identik dengan KNN." },
+        { "type": "icon_card", "icon": "crosshair", "accent": "accent_malignant", "x": 4.67, "y": 3.35, "w": 4.0, "h": 2.05,
+          "title": "Akurasi tertinggi bukan jaminan paling aman",
+          "text": "Random Forest melewatkan paling sedikit ganas (1 FN) dengan 1 FP; KNN dan Soft Voting 2 FN tanpa FP. Jenis kesalahan yang diprioritaskan menentukan pilihan." },
+        { "type": "icon_card", "icon": "scale", "accent": "accent_teal", "x": 8.74, "y": 3.35, "w": 3.99, "h": 2.05,
+          "title": "Selisih kecil belum tentu bertahan",
+          "text": "Selisih 1 kasus hanya 0,88 poin akurasi dan CI 95% antarmodel saling tumpang tindih. Perlu paired test dan validasi eksternal." },
+        { "type": "highlight_banner", "icon": "badge-check", "accent": "accent_malignant", "x": 0.6, "y": 5.65, "w": 12.13, "h": 1.05,
+          "text": "Pada split ini, Random Forest paling sesuai bila prioritasnya mengurangi ganas yang terlewat pada threshold 0,5." }
       ],
       "speaker_notes": "Tutup dengan pesan inti: pilih model berdasarkan jenis kesalahan yang diprioritaskan, dan laporkan hitungan kesalahan, bukan hanya akurasi."
     }

@@ -265,7 +265,7 @@ def b_stat_card(b) -> str:
 def _icon_card_body(x, y, w, h, b, body_top):
     """Isi kartu ikon: 'text' atau 'bullets', auto-shrink sampai muat."""
     out = []
-    avail_h = h - (body_top - y) - 0.12
+    avail_h = h - (body_top - y) - (0.08 if b.get("title") else 0.12)
     if not b.get("title") and b.get("icon"):
         tx0 = x + 0.92          # teks di kanan badge (kartu tanpa judul)
         tw = w - 0.92 - 0.18
@@ -287,21 +287,26 @@ def _icon_card_body(x, y, w, h, b, body_top):
             if total <= avail_h or size <= 10:
                 break
             size -= 0.5
-        yy = body_top
+        slack = max(0.0, avail_h - total)
+        extra_gap = min(0.08, slack / max(1, len(items) - 1) * 0.45)
+        item_gap = 0.07 + extra_gap
+        yy = body_top + min(0.06, slack * 0.2)
         for ls in wrapped:
             out.append(text(tx0 + 0.02, yy + 0.8 * lh, "\u2022", size,
                             acc_or(b, C["text_secondary"]), "600"))
             for i, ln in enumerate(ls):
                 out.append(text(tx0 + 0.22, yy + 0.8 * lh + i * lh, ln, size,
                                 C["text_primary"]))
-            yy += len(ls) * lh + 0.07
+            yy += len(ls) * lh + item_gap
     elif b.get("text"):
         lines, size = fit_lines(b["text"], tw, avail_h, SCALE["body_dense"])
         lh = pt(size) * LH / U
+        text_h = len(lines) * lh
+        rem_h = h - (body_top - y)
         if b.get("title"):
-            top = body_top + 0.04  # rapatkan di bawah judul
+            top = body_top + max(0.04, (rem_h - text_h) / 2)
         else:
-            top = body_top + max(0.0, (avail_h - len(lines) * lh) / 2)
+            top = body_top + max(0.0, (avail_h - text_h) / 2)
         out.append(text_block(tx0, top, tw, lines, size,
                               C["text_primary"]))
     return "".join(out)
@@ -322,11 +327,14 @@ def b_icon_card(b) -> str:
         out.append(icon_badge(x + 0.18 + d / 2, cy, d, acc, b.get("icon", "info")))
     if has_title:
         tl = wrap(b["title"], u(w - 0.36 - d - 0.16), pt(SCALE["card_title"]), True)
-        out.append(text_block(x + 0.2 + d + 0.16, y + 0.16,
+        lh_title = pt(SCALE["card_title"]) * LH / U
+        title_y_top = blc(cy, SCALE["card_title"]) - 0.8 * lh_title - (len(tl) - 1) * lh_title / 2
+        out.append(text_block(x + 0.2 + d + 0.16, title_y_top,
                               w - 0.36 - d - 0.16, tl, SCALE["card_title"],
                               C["text_primary"], "600", HEAD))
-        title_bottom = 0.36 + (len(tl) - 1) * pt(SCALE["card_title"]) * LH / U + 0.06
-        body_top = y + max(0.72, title_bottom + 0.14)
+        title_bottom = (title_y_top - y) + len(tl) * lh_title
+        header_bottom = max(0.18 + d, title_bottom)
+        body_top = y + header_bottom
     else:
         body_top = y + 0.14
     out.append(_icon_card_body(x, y, w, h, b, body_top))
@@ -644,27 +652,27 @@ def b_process_flow(b) -> str:
                         stroke=C["border"], sw=pt(1), shadow=True))
         # nomor
         out.append(f'<circle cx="{u(sx + 0.28):.2f}" cy="{u(y + 0.32):.2f}" '
-                   f'r="{u(0.15):.2f}" fill="{acc}"/>')
-        out.append(text(sx + 0.28, y + 0.32 + 0.055, str(st["n"]), 11,
+                   f'r="{u(0.16):.2f}" fill="{acc}"/>')
+        out.append(text(sx + 0.28, y + 0.32 + 0.055, str(st["n"]), 11.5,
                         "#FFFFFF", "700", HEAD, anchor="middle"))
-        d = 0.46
+        d = 0.48
         out.append(icon_badge(sx + cw - 0.18 - d / 2, y + 0.32, d, acc,
                               st["icon"], icon_ratio=0.56))
-        tl = wrap(st["title"], u(cw - 0.32), pt(11.5), True)
-        title_h = len(tl) * pt(11.5) * LH / U
-        lines, size = fit_lines(st["text"], cw - 0.32, h - 0.58 - 0.12 - title_h - 0.1, 10)
-        text_h = len(lines) * pt(size) * LH / U
-        off = max(0.0, (h - 0.58 - 0.12 - title_h - 0.1 - text_h) / 2)
-        out.append(text_block(sx + 0.16, y + 0.58 + off, cw - 0.32, tl, 11.5,
+        tl = wrap(st["title"], u(cw - 0.32), pt(12), True)
+        title_h = len(tl) * pt(12) * LH / U
+        title_y = y + 0.66
+        out.append(text_block(sx + 0.16, title_y, cw - 0.32, tl, 12,
                               C["text_primary"], "600", HEAD))
-        by = y + 0.58 + off + title_h + 0.1
+        rem_h = h - 0.66 - title_h - 0.08 - 0.14
+        lines, size = fit_lines(st["text"], cw - 0.32, rem_h, 10.5)
+        by = title_y + title_h + 0.08
         out.append(text_block(sx + 0.16, by, cw - 0.32, lines, size,
                               C["text_secondary"]))
         if i < n - 1:
             ax = sx + cw + gap / 2
-            out.append(f'<path d="M {u(ax - 0.045):.2f} {u(y + 0.42):.2f} '
-                       f'L {u(ax + 0.05):.2f} {u(y + 0.5):.2f} '
-                       f'L {u(ax - 0.045):.2f} {u(y + 0.58):.2f}" '
+            out.append(f'<path d="M {u(ax - 0.045):.2f} {u(y + 0.32 - 0.08):.2f} '
+                       f'L {u(ax + 0.05):.2f} {u(y + 0.32):.2f} '
+                       f'L {u(ax - 0.045):.2f} {u(y + 0.32 + 0.08):.2f}" '
                        f'fill="none" stroke="{C["text_secondary"]}" '
                        f'stroke-width="{pt(1.6):.2f}" stroke-linecap="round" '
                        f'stroke-linejoin="round" opacity="0.75"/>')
