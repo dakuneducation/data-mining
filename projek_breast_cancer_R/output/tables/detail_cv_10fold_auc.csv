@@ -1,0 +1,61 @@
+"Resample","Model","Nilai"
+"Fold01","Decision Tree",0.901260504201681
+"Fold01","Naive Bayes",0.957983193277311
+"Fold01","KNN",0.989495798319328
+"Fold01","SVM",0.987394957983193
+"Fold01","Random Forest",0.98109243697479
+"Fold02","Decision Tree",0.919878296146045
+"Fold02","Naive Bayes",0.961460446247465
+"Fold02","KNN",0.956389452332657
+"Fold02","SVM",0.969574036511156
+"Fold02","Random Forest",0.971602434077079
+"Fold03","Decision Tree",0.952332657200811
+"Fold03","Naive Bayes",0.993914807302231
+"Fold03","KNN",0.996957403651116
+"Fold03","SVM",1
+"Fold03","Random Forest",0.993914807302231
+"Fold04","Decision Tree",0.974789915966387
+"Fold04","Naive Bayes",0.970588235294118
+"Fold04","KNN",0.978991596638655
+"Fold04","SVM",0.991596638655462
+"Fold04","Random Forest",0.985294117647059
+"Fold05","Decision Tree",0.975840336134454
+"Fold05","Naive Bayes",1
+"Fold05","KNN",0.997899159663866
+"Fold05","SVM",0.997899159663866
+"Fold05","Random Forest",0.995798319327731
+"Fold06","Decision Tree",0.969574036511156
+"Fold06","Naive Bayes",1
+"Fold06","KNN",1
+"Fold06","SVM",1
+"Fold06","Random Forest",1
+"Fold07","Decision Tree",0.970588235294118
+"Fold07","Naive Bayes",0.995798319327731
+"Fold07","KNN",0.997899159663866
+"Fold07","SVM",1
+"Fold07","Random Forest",0.997899159663866
+"Fold08","Decision Tree",0.959432048681542
+"Fold08","Naive Bayes",0.98580121703854
+"Fold08","KNN",0.998985801217039
+"Fold08","SVM",0.993914807302231
+"Fold08","Random Forest",0.991886409736308
+"Fold09","Decision Tree",0.976673427991886
+"Fold09","Naive Bayes",0.995943204868154
+"Fold09","KNN",1
+"Fold09","SVM",1
+"Fold09","Random Forest",1
+"Fold10","Decision Tree",0.941176470588235
+"Fold10","Naive Bayes",0.995943204868154
+"Fold10","KNN",1
+"Fold10","SVM",1
+"Fold10","Random Forest",0.997971602434077
+"Fold01","Voting Ensemble",0.978991596638655
+"Fold02","Voting Ensemble",0.961460446247465
+"Fold03","Voting Ensemble",0.993914807302231
+"Fold04","Voting Ensemble",0.995798319327731
+"Fold05","Voting Ensemble",0.995798319327731
+"Fold06","Voting Ensemble",1
+"Fold07","Voting Ensemble",1
+"Fold08","Voting Ensemble",0.993914807302231
+"Fold09","Voting Ensemble",1
+"Fold10","Voting Ensemble",0.997971602434077
