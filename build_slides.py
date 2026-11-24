@@ -36,6 +36,8 @@ HEAD = "'Poppins','Calibri',Arial,sans-serif"
 BODY = "'Inter','Calibri',Arial,sans-serif"
 MONO = "'JetBrains Mono',Consolas,'Calibri',monospace"
 
+FRAME = "#B9CCD8"   # garis luar kartu — lebih tegas dari border tema
+
 
 def u(v: float) -> float:
     return v * U
@@ -124,6 +126,18 @@ def fit_lines(text: str, w: float, h: float, base_pt: float,
 # --------------------------------------------------------------- primitif
 def rect(x, y, w, h, fill, rx=0.0, stroke=None, sw=0.0, opacity=None,
          shadow=False, fill_opacity=None) -> str:
+    out = ""
+    if shadow:
+        # bayangan lembut dari lapisan rect semi-transparan —
+        # filter SVG (feDropShadow) tidak didukung PowerPoint
+        out += (f'<rect x="{u(x - 0.008):.2f}" y="{u(y + 0.028):.2f}" '
+                f'width="{u(w + 0.016):.2f}" height="{u(h):.2f}" '
+                f'fill="#1B2A33" fill-opacity="0.045" '
+                f'rx="{u(rx or 0.12):.2f}"/>'
+                f'<rect x="{u(x):.2f}" y="{u(y + 0.012):.2f}" '
+                f'width="{u(w):.2f}" height="{u(h):.2f}" '
+                f'fill="#1B2A33" fill-opacity="0.05" '
+                f'rx="{u(rx or 0.12):.2f}"/>')
     s = (f'<rect x="{u(x):.2f}" y="{u(y):.2f}" width="{u(w):.2f}" '
          f'height="{u(h):.2f}" fill="{fill}"')
     if rx:
@@ -134,9 +148,7 @@ def rect(x, y, w, h, fill, rx=0.0, stroke=None, sw=0.0, opacity=None,
         s += f' opacity="{opacity}"'
     if fill_opacity is not None:
         s += f' fill-opacity="{fill_opacity}"'
-    if shadow:
-        s += ' filter="url(#soft)"'
-    return s + "/>"
+    return out + s + "/>"
 
 
 def line(x1, y1, x2, y2, stroke, sw=1.0, opacity=None) -> str:
@@ -210,7 +222,7 @@ def icon_badge(cx: float, cy: float, d_in: float, accent: str, name: str,
 
 def card(x, y, w, h, accent=None, fill=None) -> str:
     out = [rect(x, y, w, h, fill or C["surface"], rx=0.12,
-                stroke=C["border"], sw=pt(1), shadow=True)]
+                stroke=FRAME, sw=pt(1.2), shadow=True)]
     if accent:
         out.append(rect(x, y + 0.12, 0.07, h - 0.24, color(accent)))
     return "".join(out)
@@ -421,9 +433,9 @@ def b_table(b) -> str:
     rh = (th - hh) / nrow
     cid = f"tbl{int(u(x))}_{int(u(y))}"
     out.append(f'<clipPath id="{cid}"><rect x="{u(x):.2f}" y="{u(ty):.2f}" '
-               f'width="{u(w):.2f}" height="{u(th):.2f}" rx="8"/></clipPath>')
-    out.append(rect(x, ty, w, th, C["surface"], rx=0.08,
-                    stroke=C["border"], sw=pt(1), shadow=True))
+               f'width="{u(w):.2f}" height="{u(th):.2f}" rx="6"/></clipPath>')
+    out.append(rect(x, ty, w, th, C["surface"], rx=0.06,
+                    stroke=FRAME, sw=pt(1.2), shadow=True))
     out.append(f'<g clip-path="url(#{cid})">')
     # header
     out.append(rect(x, ty, w, hh, C["primary"]))
@@ -476,6 +488,10 @@ def b_table(b) -> str:
             out.append(line(x, ry + rh, x + w, ry + rh,
                             C["border"], sw=pt(0.75), opacity=0.7))
     out.append("</g>")
+    # garis luar digambar ulang di atas baris: rapi walau clipPath
+    # tidak didukung renderer target (mis. PowerPoint)
+    out.append(rect(x, ty, w, th, "none", rx=0.06,
+                    stroke=FRAME, sw=pt(1.2)))
     return "".join(out)
 
 
@@ -649,7 +665,7 @@ def b_process_flow(b) -> str:
         sx = x + i * (cw + gap)
         acc = color(st["accent"])
         out.append(rect(sx, y, cw, h, C["surface"], rx=0.1,
-                        stroke=C["border"], sw=pt(1), shadow=True))
+                        stroke=FRAME, sw=pt(1.2), shadow=True))
         # nomor
         out.append(f'<circle cx="{u(sx + 0.28):.2f}" cy="{u(y + 0.32):.2f}" '
                    f'r="{u(0.16):.2f}" fill="{acc}"/>')
@@ -689,7 +705,7 @@ def b_formula_flow(b) -> str:
         cx = x + i * (chip_w + gap)
         chy = cy_mid - 0.65
         out.append(rect(cx, chy, chip_w, 1.3, C["surface"], rx=0.1,
-                        stroke=C["border"], sw=pt(1), shadow=True))
+                        stroke=FRAME, sw=pt(1.2), shadow=True))
         out.append(rect(cx, chy + 0.12, 0.07, 1.06, ch["color"]))
         out.append(text(cx + 0.2, chy + 0.42, ch["label"], 12, ch["color"],
                         "700", HEAD))
@@ -727,7 +743,7 @@ def b_formula_flow(b) -> str:
     och = b["output"]
     ow = x + w - ox
     out.append(rect(ox, cy_mid - 0.75, ow, 1.5, C["surface"], rx=0.1,
-                    stroke=C["border"], sw=pt(1), shadow=True))
+                    stroke=FRAME, sw=pt(1.2), shadow=True))
     out.append(rect(ox, cy_mid - 0.63, 0.07, 1.26, och["color"]))
     out.append(text(ox + 0.2, cy_mid - 0.32, och["label"], 12, och["color"],
                     "700", HEAD))
@@ -797,7 +813,7 @@ def b_image(b) -> str:
         dx, dy = x + (w - dw) / 2, y + 0.14 + (ih - dh) / 2
         if b.get("frame", True):
             out.append(rect(x, y, w, h - cap_h, C["surface"], rx=0.1,
-                            stroke=C["border"], sw=pt(1), shadow=True))
+                            stroke=FRAME, sw=pt(1.2), shadow=True))
         b64 = base64.b64encode(path.read_bytes()).decode("ascii")
         out.append(f'<image x="{u(dx):.2f}" y="{u(dy):.2f}" '
                    f'width="{u(dw):.2f}" height="{u(dh):.2f}" '
@@ -906,9 +922,6 @@ def build_slide(slide: dict) -> str:
     return (f'<svg xmlns="http://www.w3.org/2000/svg" '
             f'xmlns:xlink="http://www.w3.org/1999/xlink" '
             f'width="{W:.2f}" height="{H:.2f}" viewBox="0 0 {W:.2f} {H:.2f}">'
-            f'<defs><filter id="soft" x="-20%" y="-20%" width="140%" '
-            f'height="140%"><feDropShadow dx="0" dy="3" stdDeviation="5" '
-            f'flood-color="#1B2A33" flood-opacity="0.10"/></filter></defs>'
             + "".join(body) + "</svg>")
 
 
