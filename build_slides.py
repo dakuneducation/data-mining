@@ -2,7 +2,11 @@
 """build_slides.py — generator slide SVG dari slides_spec.json.
 
 Membaca spesifikasi (koordinat dalam inci, tema "Clinical Clean", blok per slide)
-lalu menulis slide_1.svg ... slide_17.svg di folder ini, ditambah speaker_notes.md.
+lalu menulis slide_1.svg ... slide_N.svg di folder ini, ditambah speaker_notes.md.
+
+Slide bertanda "custom_svg": true di spesifikasi adalah slide buatan tangan
+(pecahan slide 5, slide_5.svg ... slide_11.svg); file-nya tidak ditimpa selama
+masih ada, hanya catatan pembicara yang diperbarui.
 
 Pemakaian:  python build_slides.py
 """
@@ -928,10 +932,12 @@ def build_slide(slide: dict) -> str:
 def main():
     notes = ["# Speaker Notes\n"]
     for slide in SPEC["slides"]:
-        svg = build_slide(slide)
         out = ROOT / f"slide_{slide['id']}.svg"
-        out.write_text(svg, encoding="utf-8")
-        print(f"{out.name:14s} {len(svg) / 1024:7.1f} KB")
+        if slide.get("custom_svg") and out.exists():
+            print(f"{out.name:14s} dilewati (custom_svg)")
+        else:
+            out.write_text(build_slide(slide), encoding="utf-8")
+            print(f"{out.name:14s} ditulis")
         notes.append(f"## Slide {slide['id']}: {slide.get('title', '(cover)')}\n")
         notes.append(slide.get("speaker_notes", "-") + "\n")
     (ROOT / "speaker_notes.md").write_text("\n".join(notes), encoding="utf-8")
