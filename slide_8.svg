@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1333.33" height="750.00" viewBox="0 0 1333.33 750.00"
+    xmlns:c2pa="http://c2pa.org/manifest">
+    <rect x="0" y="0" width="1333.33" height="750" fill="#F7FAFC" />
+    <g transform="scale(1.0416640625)"><text x="57.60" y="56.60" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="13.00" font-weight="600" fill="#52636E" letter-spacing="1.04">03 / 06 · MODEL TUNGGAL</text>
+        <circle cx="68.60" cy="95.04" r="11.00" fill="#2A9D8F" /><text x="95.60" y="114.02"
+            font-family="'Plus Jakarta Sans','Poppins','Calibri',Arial,sans-serif" font-size="52.00" font-weight="800"
+            fill="#1B2A33" letter-spacing="-1.04">KNN</text><text x="1222.40" y="91.09"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="18.00" font-weight="400" fill="#52636E"
+            text-anchor="end">Belajar dengan menyimpan data latih lalu bertanya:</text><text x="1222.40" y="116.29"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="18.00" font-weight="400" fill="#52636E"
+            text-anchor="end">siapa tetangga terdekat pasien baru ini?</text>
+        <rect x="58.10" y="142.84" width="662.13" height="317.13" fill="#FFFFFF" rx="13.50" stroke="#B9CCD8"
+            stroke-width="1.67" /><text x="82.60" y="185.14"
+            font-family="'Plus Jakarta Sans','Poppins','Calibri',Arial,sans-serif" font-size="20.00" font-weight="800"
+            fill="#1B2A33">Cara kerja: mayoritas k neighbors terdekat</text>
+        <circle cx="98.60" cy="222.34" r="16.00" fill="#D5EEEA" /><text x="98.60" y="227.80"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="700" fill="#1B2A33"
+            text-anchor="middle">1</text><text x="128.60" y="221.85" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="16.00" font-weight="600" fill="#1B2A33">Ukur jarak ke semua data latih</text><text x="128.60"
+            y="244.42" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#52636E">Data baru dibandingkan dengan setiap sampel yang sudah diketahui kelasnya,</text><text
+            x="128.60" y="266.92" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#52636E">lewat jarak antar titik di ruang fitur.</text>
+        <circle cx="98.60" cy="304.72" r="16.00" fill="#D5EEEA" /><text x="98.60" y="310.17"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="700" fill="#1B2A33"
+            text-anchor="middle">2</text><text x="128.60" y="304.22" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="16.00" font-weight="600" fill="#1B2A33">Ambil k tetangga terdekat</text><text x="128.60"
+            y="326.80" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#52636E">Hanya k sampel dengan jarak paling kecil yang diperhitungkan; sisanya</text><text x="128.60"
+            y="349.30" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#52636E">diabaikan.</text>
+        <circle cx="98.60" cy="387.10" r="16.00" fill="#D5EEEA" /><text x="98.60" y="392.55"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="700" fill="#1B2A33"
+            text-anchor="middle">3</text><text x="128.60" y="386.60" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="16.00" font-weight="600" fill="#1B2A33">Voting mayoritas</text><text x="128.60" y="409.17"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400" fill="#52636E">Kelas
+            yang paling banyak muncul di antara k tetangga menjadi prediksi.</text><text x="128.60" y="431.67"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400" fill="#52636E">Dengan
+            dua kelas, k ganjil menghindari hasil seri.</text>
+        <rect x="57.60" y="476.47" width="323.57" height="123.66" fill="#E3F2EE" rx="14.00" /><text x="77.60" y="507.01"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="700"
+            fill="#1B2A33">Kelebihan</text><text x="77.60" y="533.34" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="15.00" font-weight="400" fill="#1B2A33">Konsepnya sederhana dan tanpa</text><text x="77.60"
+            y="555.84" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#1B2A33">asumsi bentuk data, sehingga mampu</text><text x="77.60" y="578.34"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400"
+            fill="#1B2A33">mengikuti pola lokal.</text>
+        <rect x="397.17" y="476.47" width="323.57" height="123.66" fill="#FBE6E8" rx="14.00" /><text x="417.17"
+            y="507.01" font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="700"
+            fill="#1B2A33">Keterbatasan</text><text x="417.17" y="533.34"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400" fill="#1B2A33">Jarak
+            dipengaruhi skala fitur, dan</text><text x="417.17" y="555.84"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="15.00" font-weight="400" fill="#1B2A33">prediksi
+            melambat saat data latih</text><text x="417.17" y="578.34" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="15.00" font-weight="400" fill="#1B2A33">bertambah banyak.</text>
+        <rect x="749.23" y="142.84" width="472.67" height="331.48" fill="#FFFFFF" rx="13.50" stroke="#B9CCD8"
+            stroke-width="1.67" /><text x="769.73" y="175.94" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="13.00" font-weight="600" fill="#52636E" letter-spacing="1.04">ILUSTRASI DENGAN K = 5</text>
+        <rect x="769.73" y="191.09" width="428.00" height="186.00" fill="#EAF2F7" rx="10.00" />
+        <circle cx="983.73" cy="286.09" r="61.00" fill="none" stroke="#1B2A33" stroke-width="2.00"
+            stroke-dasharray="6 4" />
+        <circle cx="829.73" cy="231.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="889.73" cy="251.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="839.73" cy="281.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="859.73" cy="311.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="809.73" cy="341.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="879.73" cy="351.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="949.73" cy="261.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="934.73" cy="296.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="969.73" cy="319.09" r="6.00" fill="#2A9D8F" />
+        <circle cx="1024.73" cy="271.09" r="6.00" fill="#D1495B" />
+        <circle cx="1009.73" cy="311.09" r="6.00" fill="#D1495B" />
+        <circle cx="1119.73" cy="241.09" r="6.00" fill="#D1495B" />
+        <circle cx="1159.73" cy="311.09" r="6.00" fill="#D1495B" />
+        <circle cx="1089.73" cy="341.09" r="6.00" fill="#D1495B" />
+        <circle cx="1139.73" cy="351.09" r="6.00" fill="#D1495B" />
+        <circle cx="1069.73" cy="231.09" r="6.00" fill="#D1495B" />
+        <circle cx="1049.73" cy="361.09" r="6.00" fill="#D1495B" />
+        <rect x="974.73" y="277.09" width="18" height="18" fill="#1D3540" transform="rotate(45 983.73 286.09)" />
+        <circle cx="775.73" cy="397.25" r="6.00" fill="#2A9D8F" /><text x="787.73" y="402.16"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="13.50" font-weight="400"
+            fill="#52636E">Jinak</text>
+        <circle cx="845.68" cy="397.25" r="6.00" fill="#D1495B" /><text x="857.68" y="402.16"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="13.50" font-weight="400"
+            fill="#52636E">Ganas</text>
+        <rect x="916.01" y="391.75" width="11" height="11" fill="#1D3540" transform="rotate(45 921.51 397.25)" /><text
+            x="935.01" y="402.16" font-family="'Inter','Calibri',Arial,sans-serif" font-size="13.50" font-weight="400"
+            fill="#52636E">Data baru</text><text x="769.73" y="431.25" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="13.00" font-weight="400" fill="#52636E">Lingkaran putus-putus memuat 5 tetangga: 3 jinak, 2
+            ganas, jadi</text><text x="769.73" y="449.45" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="13.00" font-weight="400" fill="#52636E">prediksinya jinak. Hanya ilustrasi.</text>
+        <rect x="748.73" y="490.82" width="473.67" height="170.18" fill="#1D3540" rx="14.00" /><text x="770.73"
+            y="523.42" font-family="'Inter','Calibri',Arial,sans-serif" font-size="13.00" font-weight="600"
+            fill="#BFD3DD" letter-spacing="1.04">KONFIGURASI YANG DIUJI</text><text x="770.73" y="576.35"
+            font-family="'Plus Jakarta Sans','Poppins','Calibri',Arial,sans-serif" font-size="46.00" font-weight="800"
+            fill="#FFFFFF">12</text><text x="828.29" y="554.32" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="14.50" font-weight="400" fill="#EAF2F7">nilai k ganjil dari 3 hingga 25. k mengatur
+            jumlah</text><text x="828.29" y="575.35" font-family="'Inter','Calibri',Arial,sans-serif" font-size="14.50"
+            font-weight="400" fill="#EAF2F7">neighbors yang ikut memilih.</text>
+        <rect x="770.73" y="592.56" width="23.80" height="23.16" fill="#20404E" rx="6.00" /><text x="778.73" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">3</text>
+        <rect x="800.53" y="592.56" width="23.80" height="23.16" fill="#20404E" rx="6.00" /><text x="808.53" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">5</text>
+        <rect x="830.33" y="592.56" width="23.80" height="23.16" fill="#20404E" rx="6.00" /><text x="838.33" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">7</text>
+        <rect x="860.13" y="592.56" width="23.80" height="23.16" fill="#20404E" rx="6.00" /><text x="868.13" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">9</text>
+        <rect x="889.93" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="897.93" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">11</text>
+        <rect x="927.53" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="935.53" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">13</text>
+        <rect x="965.13" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="973.13" y="608.82"
+            font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00" font-weight="500"
+            fill="#FFFFFF">15</text>
+        <rect x="1002.73" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="1010.73"
+            y="608.82" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00"
+            font-weight="500" fill="#FFFFFF">17</text>
+        <rect x="1040.33" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="1048.33"
+            y="608.82" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00"
+            font-weight="500" fill="#FFFFFF">19</text>
+        <rect x="1077.93" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="1085.93"
+            y="608.82" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00"
+            font-weight="500" fill="#FFFFFF">21</text>
+        <rect x="1115.53" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="1123.53"
+            y="608.82" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00"
+            font-weight="500" fill="#FFFFFF">23</text>
+        <rect x="1153.13" y="592.56" width="31.60" height="23.16" fill="#20404E" rx="6.00" /><text x="1161.13"
+            y="608.82" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="13.00"
+            font-weight="500" fill="#FFFFFF">25</text><text x="57.60" y="693.12"
+            font-family="'Inter','Calibri',Arial,sans-serif" font-size="12.00" font-weight="400" fill="#52636E">Kelompok
+            5 | Informatika UNSIKA</text><text x="1222.40" y="693.12" font-family="'Inter','Calibri',Arial,sans-serif"
+            font-size="12.00" font-weight="600" fill="#52636E" text-anchor="end">8</text>
+    </g>
+    <metadata>
+        <c2pa:manifest>
+            AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0NjUxMGMwZi03MzI4LTQ0NGQtOWY1OC01YTg4ZGU0NDEwMTUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaGQcdDGo13pJVGhsg++i+nEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo2MDMzZWNiNC1jZmQ1LTQ5NTctYjE5OS00ZDg1MWNjODMxOWNscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNokN7JXR6WRpsSWv6Unn//iQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggOWanZjCK7ndKv3NylWPrudQqyTapXVADAiMCCTPe3r6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaIW/28xP8Udbw/u+1BFhx/IAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIGmJcA10EJChPL3HbrKFR0QlSIgCrXSsWsb3TgfQWYkyZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GS5HZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjQ2NTEwYzBmLTczMjgtNDQ0ZC05ZjU4LTVhODhkZTQ0MTAxNS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmJkZDEyNjYxLTE0NGQtNDQ2NC1iNTQyLTI4YzU0MDY5ZGNmY3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCA5ZqdmMIrud0q/c3KVY+u51CrJNqldUAMCIwIJM97evqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggCnO/UrylJIz4qDywHXm5Ov3CRn941VORevz4EPZPLIGiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggvj3ZQfMUeTm4SLIK24ZsfzFWKYx+XVvu3aGhi2x7e5d0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQIDvZ6aRul6glHjXZu8p02BsMXmyUbXoTwnRVGVGyHQ+E0KwHTDjR0JRvndHHqoOTuzBslUHywyyLZE8XCoFVMk=
+        </c2pa:manifest>
+    </metadata>
+</svg>
